@@ -9,7 +9,8 @@ import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.template.Engine;
 
-import cn.ksdshpx.pjfinal.controller.IndexController;
+import cn.ksdshpx.pjfinal.route.AdminRoute;
+import cn.ksdshpx.pjfinal.route.FrontRoute;
 
 /**
  * @author peng.x
@@ -24,7 +25,10 @@ public class MyConfig extends JFinalConfig {
 
 	@Override
 	public void configRoute(Routes me) {
-		me.add("/", IndexController.class);
+		//me.add("/", IndexController.class);
+		//me.add("/index", IndexController.class, "/abc");
+		me.add(new FrontRoute());
+		me.add(new AdminRoute());
 	}
 
 	@Override
