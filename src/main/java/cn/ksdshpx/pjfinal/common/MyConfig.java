@@ -19,8 +19,7 @@ public class MyConfig extends JFinalConfig {
 
 	@Override
 	public void configConstant(Constants me) {
-		// TODO Auto-generated method stub
-
+		me.setDevMode(true);
 	}
 
 	@Override
@@ -34,20 +33,27 @@ public class MyConfig extends JFinalConfig {
 
 	@Override
 	public void configPlugin(Plugins me) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void configInterceptor(Interceptors me) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void configHandler(Handlers me) {
-		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void afterJFinalStart() {
+		System.out.println("afterJFinalStart()...");
+	}
+
+	@Override
+	public void beforeJFinalStop() {
+		System.out.println("beforeJFinalStop()...");
 	}
 
 	public static void main(String[] args) {
