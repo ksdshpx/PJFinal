@@ -15,6 +15,7 @@ import com.jfinal.template.Engine;
 
 import cn.ksdshpx.pjfinal.controller.IndexController;
 import cn.ksdshpx.pjfinal.interceptor.GlobalInterceptor;
+import cn.ksdshpx.pjfinal.interceptor.InjectInterceptor;
 import cn.ksdshpx.pjfinal.model.Blog;
 import cn.ksdshpx.pjfinal.route.AdminRoute;
 import cn.ksdshpx.pjfinal.route.FrontRoute;
@@ -58,6 +59,7 @@ public class MyConfig extends JFinalConfig {
 	@Override
 	public void configInterceptor(Interceptors me) {
 		me.add(new GlobalInterceptor());
+		me.addGlobalServiceInterceptor(new InjectInterceptor());
 	}
 
 	@Override
