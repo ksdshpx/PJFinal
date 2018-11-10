@@ -1,12 +1,12 @@
 package cn.ksdshpx.pjfinal.controller;
 
 import com.jfinal.aop.Before;
-import com.jfinal.aop.Enhance;
+import com.jfinal.aop.Clear;
 import com.jfinal.aop.Enhancer;
 import com.jfinal.core.Controller;
 
 import cn.ksdshpx.pjfinal.interceptor.ClassInterceptor;
-import cn.ksdshpx.pjfinal.interceptor.InjectInterceptor;
+import cn.ksdshpx.pjfinal.interceptor.GlobalInterceptor;
 import cn.ksdshpx.pjfinal.interceptor.MethodInterceptor;
 import cn.ksdshpx.pjfinal.model.Blog;
 import cn.ksdshpx.pjfinal.service.OrderServiceImpl;
@@ -35,6 +35,7 @@ public class IndexController extends Controller {
 	 * 测试method级别的Interceptor
 	 */
 	@Before(MethodInterceptor.class)
+	@Clear({ ClassInterceptor.class, GlobalInterceptor.class })
 	public void testMethod() {
 		renderTemplate("index.html");
 	}
